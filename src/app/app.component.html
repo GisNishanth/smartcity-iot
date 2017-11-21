@@ -1,0 +1,107 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <h6 style="text-align:left">
+    {{time}}
+  </h6>
+  <h1 style="text-align:center">
+    {{title}}
+  </h1>
+</div>
+
+  <select style="float:right" [(ngModel)]="selectedCountry" (change)="zoneChange(selectedCountry)" >
+   <option  value="0">Select Zone</option>
+    <option *ngFor="let country of countries" value= {{country.id}}>{{country.zone}}</option>
+  </select>
+
+
+
+<input id="draggable" type="checkbox" [(ngModel)]="gridsterOptions.dragAndDrop" value="true"
+                   (change)="gridsterOptionChange('dragAndDrop',gridsterOptions.dragAndDrop)" ><label for="draggable">Draggable</label>
+
+<input type="checkbox" [(ngModel)]="gridsterOptions.resizable" value="true" id="resizable"
+                   (change)="gridsterOptionChange('resizable',gridsterOptions.resizable)"  ><label for="resizable">Resizable</label>
+
+<input type="checkbox" [(ngModel)]="gridsterOptions.floating" value="true" id="floating"
+          (change)="gridsterOptionChange('floating',gridsterOptions.floating)" ><label for="floating">Floating (gravity)</label>
+<div class="main-content">
+  <gridster [options]="gridsterOptions" class="grid-alloc" [draggableOptions]="{ handlerClass: 'panel-heading' }">
+
+    <gridster-item class="gridItem-alloc" *ngFor="let widget of widgets; let indx = index" [dragAndDrop]="gridsterOptions.dragAndDrop" [resizable]="gridsterOptions.resizable" [(x)]="widget.x" [(y)]="widget.y" [(w)]="widget.w" [(h)]="widget.h">
+      <div  *ngIf="indx == 0">
+        <div class="panel-heading">
+            <h5 class="panel-title">{{ widget.title }}</h5>
+        </div>
+          <div class="panel-body">
+            <surveillance-camera></surveillance-camera>
+          </div>
+      </div>
+      <div  *ngIf="indx == 1">
+        <div class="panel-heading">
+            <h5 class="panel-title">{{ widget.title }}</h5>
+        </div>
+        <div class="panel-body">
+          <emergency-alert></emergency-alert>
+        </div>
+      </div>
+      <div *ngIf="indx == 2">
+      <div class="panel-heading">
+            <h5 class="panel-title">{{ widget.title }}</h5>
+        </div>
+        <div class="panel-body">
+         <environment-alert></environment-alert>
+         
+
+        </div>
+      </div>
+      <div *ngIf="indx == 3">
+      <div class="panel-heading">
+            <h5 class="panel-title">{{ widget.title }}</h5>
+        </div>
+        <div class="panel-body">
+          <street-light></street-light>
+        </div>
+      </div>
+      <div *ngIf="indx == 4">
+
+      <div class="panel-heading">
+            <h5 class="panel-title">{{ widget.title }}</h5>
+        </div>
+        <div class="panel-body">
+         <solid-waste></solid-waste>
+        </div>
+      </div>
+      <div *ngIf="indx == 5">
+
+      <div class="panel-heading">
+            <h5 class="panel-title">{{ widget.title }}</h5>
+        </div>
+        <div class="panel-body">
+          <kiosk-management></kiosk-management>
+        </div>
+      </div>
+      <div *ngIf="indx == 6">
+
+      <div class="panel-heading">
+            <h5 class="panel-title">{{ widget.title }}</h5>
+        </div>
+        <div class="panel-body">
+        <parking-area></parking-area>
+        </div>
+      </div>
+      <div *ngIf="indx == 7">
+
+      <div class="panel-heading">
+            <h5 class="panel-title">{{ widget.title }}</h5>
+        </div>
+        <div class="panel-body">
+        <livecity-route></livecity-route>
+         
+
+        </div>
+      </div>
+    </gridster-item>
+
+  </gridster>
+</div>
+
+

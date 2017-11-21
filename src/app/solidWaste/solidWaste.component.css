@@ -1,0 +1,19 @@
+.blink {
+  width: 100px;
+    height: 60px;
+    background-color: red;
+  animation: blink-animation 3s steps(5, start) infinite;
+  -webkit-animation: blink-animation 3s steps(5, start) infinite;
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+    background-color: yellow;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+    background-color: yellow;
+  }
+}

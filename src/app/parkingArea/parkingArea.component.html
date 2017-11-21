@@ -1,0 +1,10 @@
+ <agm-map class="agm-park" [latitude]="51.673858" [longitude]="7.815982">
+          <div *ngFor="let location of markers; let j = index">
+              <agm-marker [latitude]="location.lat" [longitude]="location.lng">
+                <agm-info-window>
+                  <strong>{{location.label}}</strong>
+                  <p>{{location.draggable}}</p>
+                </agm-info-window>
+              </agm-marker>
+            </div>
+      </agm-map>
